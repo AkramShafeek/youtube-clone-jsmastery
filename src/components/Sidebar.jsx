@@ -1,9 +1,8 @@
-import { Stack } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import { categories } from '../utils/constants';
 import { useState } from 'react';
 
-const Sidebar = () => {
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <Stack
       direction="row"
@@ -20,15 +19,14 @@ const Sidebar = () => {
           }}
           onClick={() => setSelectedCategory(category.name)}>
           <span style={{
-            color: category.name === selectedCategory ? "#white" : "red",
+            color: category.name === selectedCategory ? "white" : "red",
             marginRight: '15px'
           }}>{category.icon}</span>
           <span style={{
             opacity: category.name === selectedCategory ? "1" : "0.8",
           }}>{category.name}</span>
         </button>
-      ))
-      }
+      ))}
     </Stack >
   )
 }
